@@ -1,0 +1,40 @@
+#Sir I have made this one example based because I was not able to get input from nested dictionary user.
+
+dct = {"key":3,"foo":{"a":5,"bar":{"baz":8}}}
+def flattern_dict(a,b):
+    new_dct = {}
+    for key,val in a.items():
+        new_key = b+key
+        if isinstance(val, dict):
+            new_dct.update(flattern_dict(val, new_key+"."))
+        else:
+            new_dct[new_key] = val
+    return new_dct
+print(flattern_dict(dct,""))
+
+
+# And this is the code for the nested dictionary that I know for input the dictionary from the user.
+
+d = {}
+size = int(input("Enter the size of nested dictionary: "))
+for i in range(size):
+    dict_name = input("Enter the name of child dictionary: ")
+    d[dict_name] = {}
+    key1 = input("Enter key1: ")
+    Value1 = input("Enter Value1 : ")
+    key2 = input("Enter key2: ")
+    Value2 = input("Enter Value2 : ")
+    d[dict_name][key1] = Value1
+    d[dict_name][key2] = Value2
+print(d)
+def flattern_dict(a,b):
+    new_dct = {}
+    for key,val in a.items():
+        new_key = b+key
+        if isinstance(val, dict):
+            new_dct.update(flattern_dict(val, new_key+"."))
+        else:
+            new_dct[new_key] = val
+    return new_dct
+print(flattern_dict(d,""))
+
